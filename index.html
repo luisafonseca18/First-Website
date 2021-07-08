@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Comparador de Temperatura.</title>
+         <link rel="icon" href="data:,"> <!--esta linha de codigo permitiu estarmos ligados aos serviços REST e criar o webserver -->
+    </head>
+
+    <script language="javascript">
+        function init() {
+            var scheme
+            if (window.location.protocol == 'https:')
+                scheme = 'wss:';
+            else
+                scheme = 'ws:';
+            var wsUri = scheme + '//' + window.location.hostname;
+            logMsg("Connecting to " + wsUri + "...")
+            websocket           = new WebSocket(wsUri);
+            websocket.onopen    = function(evt) { onOpen    (evt) };
+            websocket.onclose   = function(evt) { onClose   (evt) };
+            websocket.onmessage = function(evt) { onMessage (evt) };
+            websocket.onerror   = function(evt) { onError   (evt) };
+        }
+    
+        function onOpen(evt) {
+            logMsg("Connected");
+        }
+
+        function onClose(evt) {
+            logMsg("Disconnected");
+        }
+
+        function onMessage(evt) {
+            logMsg(evt.data);
+            document.getElementById("Modo").innerHTML = evt.data;
+        }
+
+        function onError(evt) {
+            logMsg('ERROR: ' + evt.data);
+        }
+
+        function logMsg(s) {
+            document.getElementById("log").value += s + '\n';
+        }
+
+
+        function cidade() {
+            if (document.getElementById("Porto").selected)
+                websocket.send("Porto");
+
+            if (document.getElementById("Viseu").selected)
+                websocket.send('Viseu');
+
+            if (document.getElementById("Vila Do Conde").selected)
+                websocket.send(document.getElementById("Vila Do Conde").value);
+
+            if (document.getElementById("Castelo De Paiva").selected)
+                websocket.send(document.getElementById("Castelo De Paiva").value);
+
+            if (document.getElementById("Esposende").selected)
+                websocket.send(document.getElementById("Esposende").value);
+
+            if (document.getElementById("Povoa De Varzim").selected)
+                websocket.send(document.getElementById("Povoa De Varzim").value);
+
+            if (document.getElementById("Vizela").selected)
+                websocket.send(document.getElementById("Vizela").value);
+        }
+
+        function Temppp() {
+            websocket.send([document.getElementById("limite").value ,'Temp']);
+        }
+
+        // função que seleciona a porção da página que aparece consoante o modo ativado nos botões
+        
+
+        window.addEventListener("load", init, false);
+    </script>
+
+    <body style="background-color:rgb(221, 190, 169);">
+        <center><h1 style="color:rgb(107, 112, 92);font-family:calibri">&#127777 Comparador de Temperatura &#127777 </h1></center>
+        <!-- Tudo o que estiver dentro de <div> é o que corresponde ao modo -->
+        <center><h3 style ="font-family:calibri" id="Modo">Modo 1</h3></center>
+        <div id="Modo 1">
+            <h4 style ="font-family:calibri" id="Modo">Modo 1</h4>
+            <form>
+                Selecione a cidade:
+                <select>
+                <option id="Porto" value="Porto">Porto</option> // Pre-selected
+                <option id="Viseu" value="Viseu">Viseu</option>Viseu
+                <option id="Vila Do Conde" value="Vila Do Conde">Vila Do Conde</option> 
+                <option id="Castelo De Paiva" value="Castelo De Paiva">Castelo De Paiva</option> 
+                <option id="Esposende" value="Esposende">Esposende</option>
+                <option id ="Povoa De Varzim" value="Povoa De Varzim">P&#243voa de Varzim</option>
+                <option id="Vizela" value="Vizela">Vizela</option> 
+                </select>
+                <button onclick="cidade()">Selecionar</button>
+            </form>
+          
+        </div>
+
+        <div id="Modo 2">
+            <h4 style ="font-family:calibri" id="Modo">Modo 2</h4>
+            <form>
+                <label style ="font-family:calibri" for="templimite">Temperatura pretendida</label>
+                <input type="number" id="limite" min=0>
+                <span class="validity"></span>
+                <button onclick="Temppp()">Submeter</button>
+            </form>
+        </div>
+        <h5>Hist&#243rico de troca de mensagem:</h5>
+        <textarea id="log" rows="10" cols="100"></textarea>
+
+        <img src="feuplogo.jpg" alt="logo da feup" width="300" height="133">
+        <footer>
+            <p style ="font-family:calibri" >Autores: Patr&#237;cia Soares & Lu&#237;s Afonseca<br>
+            <a style ="font-family:calibri"  href="https://github.com/luisafonseca18/T01B12">GitHub</a></p>
+          </footer>
+    </body>
+</html>

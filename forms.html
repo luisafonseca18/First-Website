@@ -5,11 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Various Forms</title>
+    <style>
+        body {
+            font-family: calibri;
+        }
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+        h3 {
+            color: black;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
+    
+    <h1>This are some of the many ways of providing an input</h1>
+
     <form>
-        <input type="text" placeholder="Type your name here" name="input_name">
-        <input type="submit">
+        <div>
+            <h3>Write and submit</h3>
+            <input type="text" placeholder="Type your name here" name="input_name">
+            <input type="submit">
+        </div>
+
+        <div>
+            <h3>Name and Password</h3>
+            <input name="name" type="text" placeholder="Name">
+            <input name="password" type="password" placeholder="Password">
+        </div>
+
+        <div>
+            <h3>Select an option</h3>
+            Select your favorite color:
+            <input name="color" type="radio" value="red"> Red
+            <input name="color" type="radio" value="green"> Green
+            <input name="color" type="radio" value="blue"> Blue
+            <input name="color" type="radio" value="other"> Other
+        </div>
+
+        <div>
+            <h3>Type and auto-complete based on a datalist</h3>
+            <input name="country" list="countries" placeholder="Latin Country">
+            <datalist id="countries">
+                <option value="Portugal">
+                <option value="Spain">
+                <option value="Italy">    
+            </datalist>
+        </div>
     </form>
 </body>
 </html>

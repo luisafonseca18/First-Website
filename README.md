@@ -11,3 +11,7 @@ Learned a bit of CSS and GIT
 Applied previous knowledge of html to the concepts learned the day before.
 
 Learned about link to another html page in the same folder.
+
+## Day 3
+
+Created a separated css file to style the different pages in the web site.

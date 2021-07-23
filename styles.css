@@ -9,19 +9,38 @@ h1 {
 h2 {
     color: brown;
     text-align: left;
+    margin: 20px;
 }
 table {
-    border: 1px solid black;
+    background-color: beige;
+    border: 3px solid black;
+    border-collapse: collapse; /*adiciona linhas entre linhas e colunas*/
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
 }
+td,th {
+    border: 1px solid black
+}
+
 div {
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
     font-weight: bold;
     background-color: orange;
     width: 400px;
-    height: 400px;
+    height: 150px;
     text-align: center;
     padding: 20px; /* afasta texto das bordas da div */
     margin: 20px;  /* afasta a div das bordas do site */
     border: 3px solid black; /* adiciona uma borda à div */
+}
+
+#form1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    font-weight: bold;
+    background-color: aquamarine;
+    width: 300px;
+    height: 100px;
 }

@@ -11,20 +11,20 @@
     
     <h1>This are some of the many ways of providing an input</h1>
 
-    <form>
-        <div>
+    <form id="forms">
+        <div id="form1">
             <h3>Write and submit</h3>
             <input type="text" placeholder="Type your name here" name="input_name">
             <input type="submit">
         </div>
 
-        <div>
+        <div id="form2">
             <h3>Name and Password</h3>
             <input name="name" type="text" placeholder="Name">
             <input name="password" type="password" placeholder="Password">
         </div>
 
-        <div>
+        <div id="form3">
             <h3>Select an option</h3>
             Select your favorite color:
             <input name="color" type="radio" value="red"> Red
@@ -33,7 +33,7 @@
             <input name="color" type="radio" value="other"> Other
         </div>
 
-        <div>
+        <div id="form4">
             <h3>Type and auto-complete based on a datalist</h3>
             <input name="country" list="countries" placeholder="Latin Country">
             <datalist id="countries">

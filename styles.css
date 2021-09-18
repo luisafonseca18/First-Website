@@ -79,10 +79,11 @@ img {
 }
 
 #BottomContent {
-    position: absolute;
-    align-items: center;
-    bottom: 0;
-    margin: auto;
+    position: fixed;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
     background-color: black;
 }
 
@@ -97,4 +98,14 @@ img {
 
 #github, #instagram, #facebook{
     background-color: black;
+}
+
+#facebook:hover {
+    background-color: orange;
+}
+#instagram:hover {
+    background-color: orange;
+}
+#github:hover {
+    background-color: orange;
 }

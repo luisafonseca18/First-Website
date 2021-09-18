@@ -74,4 +74,27 @@ ul > li {
     text-decoration: underline;
 }
 
+img {
+    border-radius: 50%;
+}
 
+#BottomContent {
+    position: absolute;
+    align-items: center;
+    bottom: 0;
+    margin: auto;
+    background-color: black;
+}
+
+#SocialMedia {
+    margin: auto;
+    border: 1px solid black;
+}
+
+#SocialMedia > tbody > tr > td {
+    border: 2px solid black;
+}
+
+#github, #instagram, #facebook{
+    background-color: black;
+}
